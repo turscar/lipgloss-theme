@@ -7,7 +7,7 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/exp/golden"
 	"github.com/muesli/termenv"
-	theme "github.com/purpleclay/lipgloss-theme"
+	theme "go.turscar.ie/lipgloss-theme"
 )
 
 // Thanks ChatGPT!

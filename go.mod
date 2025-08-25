@@ -1,4 +1,4 @@
-module github.com/turscar/lipgloss-theme
+module go.turscar.ie/lipgloss-theme
 
 go 1.25.0
 
