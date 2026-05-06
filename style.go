@@ -1,8 +1,8 @@
 package theme
 
 import (
-	"github.com/charmbracelet/lipgloss"
-	"github.com/charmbracelet/log"
+	"charm.land/lipgloss/v2"
+	"charm.land/lipgloss/v2/compat"
 )
 
 // Defines the PurpleClay palette of color shades
@@ -35,9 +35,9 @@ var (
 	A = lipgloss.NewStyle().
 		Bold(true).
 		Underline(true).
-		Foreground(lipgloss.AdaptiveColor{
-			Light: string(S400),
-			Dark:  string(S100),
+		Foreground(compat.AdaptiveColor{
+			Light: lipgloss.Color("S400"),
+			Dark:  lipgloss.Color("S100"),
 		})
 
 	h = lipgloss.NewStyle().Padding(0, 1).Bold(true).Foreground(lipgloss.Color("#ffffff"))
@@ -45,58 +45,58 @@ var (
 	// H1 defines a PurpleClay themed header that is ranked on importance from
 	// H1 (most) to H6 (least). Supports both light and dark terminals
 	H1 = h.
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S50),
-			Dark:  string(S200),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S50"),
+			Dark:  lipgloss.Color("S200"),
 		})
 
 	// H2 defines a PurpleClay themed header that is ranked on importance from
 	// H1 (most) to H6 (least). Supports both light and dark terminals
 	H2 = h.
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S100),
-			Dark:  string(S300),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S100"),
+			Dark:  lipgloss.Color("S300"),
 		})
 
 	// H3 defines a PurpleClay themed header that is ranked on importance from
 	// H1 (most) to H6 (least). Supports both light and dark terminals
 	H3 = h.
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S200),
-			Dark:  string(S400),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S200"),
+			Dark:  lipgloss.Color("S400"),
 		})
 
 	// H4 defines a PurpleClay themed header that is ranked on importance from
 	// H1 (most) to H6 (least). Supports both light and dark terminals
 	H4 = h.
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S300),
-			Dark:  string(S500),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S300"),
+			Dark:  lipgloss.Color("S500"),
 		})
 
 	// H5 defines a PurpleClay themed header that is ranked on importance from
 	// H1 (most) to H6 (least). Supports both light and dark terminals
 	H5 = h.
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S400),
-			Dark:  string(S600),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S400"),
+			Dark:  lipgloss.Color("S600"),
 		})
 
 	// H6 defines a PurpleClay themed header that is ranked on importance from
 	// H1 (most) to H6 (least). Supports both light and dark terminals
 	H6 = h.
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S500),
-			Dark:  string(S700),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S500"),
+			Dark:  lipgloss.Color("S700"),
 		})
 
 	// Mark defines a PurpleClay themed text decoration for highlighting text. Supports
 	// both light and dark terminals
 	Mark = lipgloss.NewStyle().
 		Padding(0, 1).
-		Background(lipgloss.AdaptiveColor{
-			Light: string(S50),
-			Dark:  string(S700),
+		Background(compat.AdaptiveColor{
+			Light: lipgloss.Color("S50"),
+			Dark:  lipgloss.Color("S700"),
 		})
 
 	// I defines a PurpleClay themed hyperlink that supports both light and dark terminals
@@ -113,76 +113,78 @@ var (
 
 	// Tick defines a PurpleClay themed glyph ✓ that supports both light and dark terminals
 	Tick = lipgloss.NewStyle().
-		Foreground(lipgloss.AdaptiveColor{
-			Light: string(Green900),
-			Dark:  string(Green700),
+		Foreground(compat.AdaptiveColor{
+			Light: lipgloss.Color("Green900"),
+			Dark:  lipgloss.Color("Green700"),
 		}).
 		Render("✓")
 
 	// Cross defines a PurpleClay themed glyph x that supports both light and dark terminals
 	Cross = lipgloss.NewStyle().
-		Foreground(lipgloss.AdaptiveColor{
-			Light: string(Red900),
-			Dark:  string(Red700),
+		Foreground(compat.AdaptiveColor{
+			Light: lipgloss.Color("Red900"),
+			Dark:  lipgloss.Color("Red700"),
 		}).
 		Render("✕")
 
 	// Bang defines a PurpleClay themed glyph ! that supports both light and dark terminals
 	Bang = lipgloss.NewStyle().
-		Foreground(lipgloss.AdaptiveColor{
-			Light: string(Amber900),
-			Dark:  string(Amber700),
+		Foreground(compat.AdaptiveColor{
+			Light: lipgloss.Color("Amber900"),
+			Dark:  lipgloss.Color("Amber700"),
 		}).
 		Render("!")
 
-	// Logging defines a PurpleClay themed [logging] style that supports both light and
-	// dark terminals
-	//
-	// [logging]: https://github.com/charmbracelet/log
-	Logging = &log.Styles{
-		Timestamp: lipgloss.NewStyle(),
-		Caller:    lipgloss.NewStyle().Faint(true),
-		Prefix:    lipgloss.NewStyle().Bold(true).Faint(true),
-		Message:   lipgloss.NewStyle().MarginRight(2),
-		Key: lipgloss.NewStyle().
-			Foreground(lipgloss.AdaptiveColor{
-				Light: string(S400),
-				Dark:  string(S100),
-			}),
-		Value:     lipgloss.NewStyle(),
-		Separator: lipgloss.NewStyle().Faint(true),
-		Levels: map[log.Level]lipgloss.Style{
-			log.DebugLevel: lipgloss.NewStyle().
-				SetString(Tick).
-				Bold(true).
-				MaxWidth(2),
-			log.InfoLevel: lipgloss.NewStyle().
-				SetString(Tick).
-				Bold(true).
-				MaxWidth(2),
-			log.WarnLevel: lipgloss.NewStyle().
-				SetString(Bang).
-				Bold(true).
-				MaxWidth(2),
-			log.ErrorLevel: lipgloss.NewStyle().
-				SetString(Cross).
-				Bold(true).
-				MaxWidth(2),
-			log.FatalLevel: lipgloss.NewStyle().
-				SetString(Cross).
-				Bold(true).
-				MaxWidth(2),
-		},
-		Keys: map[string]lipgloss.Style{
-			"err": lipgloss.NewStyle().Foreground(lipgloss.AdaptiveColor{
-				Light: string(Red900),
-				Dark:  string(Red700),
-			}),
-			"error": lipgloss.NewStyle().Foreground(lipgloss.AdaptiveColor{
-				Light: string(Red900),
-				Dark:  string(Red700),
-			}),
-		},
-		Values: map[string]lipgloss.Style{},
-	}
+	/*
+		// Logging defines a PurpleClay themed [logging] style that supports both light and
+		// dark terminals
+		//
+		// [logging]: https://github.com/charmbracelet/log
+		Logging = &log.Styles{
+			Timestamp: lipgloss.NewStyle(),
+			Caller:    lipgloss.NewStyle().Faint(true),
+			Prefix:    lipgloss.NewStyle().Bold(true).Faint(true),
+			Message:   lipgloss.NewStyle().MarginRight(2),
+			Key: lipgloss.NewStyle().
+				Foreground(compat.AdaptiveColor{
+					Light: lipgloss.Color("S400"),
+					Dark:  lipgloss.Color("S100"),
+				}),
+			Value:     lipgloss.NewStyle(),
+			Separator: lipgloss.NewStyle().Faint(true),
+			Levels: map[log.Level]lipgloss.Style{
+				log.DebugLevel: lipgloss.NewStyle().
+					SetString(Tick).
+					Bold(true).
+					MaxWidth(2),
+				log.InfoLevel: lipgloss.NewStyle().
+					SetString(Tick).
+					Bold(true).
+					MaxWidth(2),
+				log.WarnLevel: lipgloss.NewStyle().
+					SetString(Bang).
+					Bold(true).
+					MaxWidth(2),
+				log.ErrorLevel: lipgloss.NewStyle().
+					SetString(Cross).
+					Bold(true).
+					MaxWidth(2),
+				log.FatalLevel: lipgloss.NewStyle().
+					SetString(Cross).
+					Bold(true).
+					MaxWidth(2),
+			},
+			Keys: map[string]lipgloss.Style{
+				"err": lipgloss.NewStyle().Foreground(compat.AdaptiveColor{
+					Light: lipgloss.Color("Red900"),
+					Dark:  lipgloss.Color("Red700"),
+				}),
+				"error": lipgloss.NewStyle().Foreground(compat.AdaptiveColor{
+					Light: lipgloss.Color("Red900"),
+					Dark:  lipgloss.Color("Red700"),
+				}),
+			},
+			Values: map[string]lipgloss.Style{},
+		}
+	*/
 )

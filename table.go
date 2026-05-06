@@ -3,7 +3,8 @@ package theme
 import (
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
+	"charm.land/lipgloss/v2"
+	"charm.land/lipgloss/v2/compat"
 )
 
 // TableBorder defines a series of characters that are used when rendering the
@@ -27,9 +28,9 @@ type TableBorder struct {
 
 var (
 	bdr = lipgloss.NewStyle().
-		Foreground(lipgloss.AdaptiveColor{
-			Light: string(S400),
-			Dark:  string(S200),
+		Foreground(compat.AdaptiveColor{
+			Light: lipgloss.Color("S400"),
+			Dark:  lipgloss.Color("S200"),
 		})
 
 	cell = lipgloss.NewStyle().Padding(0, 1)

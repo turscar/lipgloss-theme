@@ -4,9 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/charmbracelet/lipgloss"
+	"charm.land/lipgloss/v2"
 	"github.com/charmbracelet/x/exp/golden"
-	"github.com/muesli/termenv"
 	theme "go.turscar.ie/lipgloss-theme"
 )
 
@@ -25,7 +24,7 @@ var data = [][]string{
 
 func TestMain(m *testing.M) {
 	// Strip all color related to the theme as it is breaking golden tests
-	lipgloss.SetColorProfile(termenv.Ascii)
+	//lipgloss.SetColorProfile(termenv.Ascii)
 	code := m.Run()
 	os.Exit(code)
 }
